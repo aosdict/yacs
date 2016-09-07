@@ -38,6 +38,11 @@ table#navtable td.sidelink {
     margin:auto;
 }
 
+img#scheduleicon {
+   height:30px;
+   vertical-align: middle;
+}
+
 #searchbar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #fafafa;
 }
