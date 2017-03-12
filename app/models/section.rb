@@ -12,21 +12,22 @@ class Section < ActiveRecord::Base
   end
 
   def conflicts_with(section)
+    return self.conflicts.include? section.id
     # TODO: should check the list of conflicts first
-    i = 0
-    while i < num_periods
-      j = 0
-      while j < section.num_periods
-        if (periods_day[i] == section.periods_day[j] \
-          && ((periods_start[i].to_i <= section.periods_start[j] && periods_end[i].to_i >= section.periods_start[j]) \
-          || (periods_start[i].to_i >= section.periods_start[j] && periods_start[i].to_i <= section.periods_end[j])))
-          return true
-        end
-        j += 1
-      end
-      i += 1
-    end
-    false
+    # i = 0
+    # while i < num_periods
+    #   j = 0
+    #   while j < section.num_periods
+    #     if (periods_day[i] == section.periods_day[j] \
+    #       && ((periods_start[i].to_i <= section.periods_start[j] && periods_end[i].to_i >= section.periods_start[j]) \
+    #       || (periods_start[i].to_i >= section.periods_start[j] && periods_start[i].to_i <= section.periods_end[j])))
+    #       return true
+    #     end
+    #     j += 1
+    #   end
+    #   i += 1
+    # end
+    # false
   end
 
   def update_conflicts!
